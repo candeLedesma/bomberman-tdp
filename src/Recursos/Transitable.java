@@ -2,9 +2,8 @@ package Recursos;
 
 public class Transitable extends Celda{
 	
-	
-	public Transitable(int fil,int col) {
-		super(fil,col);
+	public Transitable(int fil, int col) {
+		super(fil, col);
 		this.repaint();
 	}
 
@@ -20,6 +19,4 @@ public class Transitable extends Celda{
 		this.setIcon(null);
 		this.repaint();
 	}
-	
-
 }

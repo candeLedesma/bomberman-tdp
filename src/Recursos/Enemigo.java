@@ -13,54 +13,54 @@ public abstract class Enemigo extends Entidad{
 	
 	public Enemigo() {
 		super();
-		mover=dirRandom();
-		x=100;
-		y=50;
-		rectangulo = new Rectangle(x+10,y+10,20,20);
+		mover = dirRandom();
+		x = 100;
+		y = 50;
+		rectangulo = new Rectangle(x + 10, y + 10, 20, 20);
 	}
 	
-	public void mover(int m,ColisionChecker cChecker) {
-		colisionOn=false;
-		cChecker.checkColisionEnemigo(this,mover);
+	public void mover(int m, ColisionChecker cChecker) {
+		colisionOn = false;
+		cChecker.checkColisionEnemigo(this, mover);
 		
-		if(!colisionOn) {
+		if (!colisionOn) {
 			switch(mover) {
-			case 0://derecha
-				x=x+speed;
-			break;
-			case 1://abajo
-				y=y+speed;
+				case 0://derecha
+					x += speed;
 				break;
-			case 2://izquierda
-				x=x-speed;
-				break;
-			case 3://arriba
-				y=y-speed;
-				break;
+				case 1://abajo
+					y += speed;
+					break;
+				case 2://izquierda
+					x -= speed;
+					break;
+				case 3://arriba
+					y -= speed;
+					break;
 			}
-			dir=mover;
+			dir = mover;
 			rectangulo.setBounds(x, y, 48, 48);
-		}else {
+		} else {
 			switch(mover) {
-			case 2://izquierda
-				x=x+speed;
-				dir=0;
-			break;
-			case 3://arriba
-				y=y+speed;
-				dir=1;
-				break;
-			case 0://derecha
-				x=x-speed;
-				dir=2;
-				break;
-			case 1://abajo
-				y=y-speed;
-				dir=3;
-				break;
+				case 2://izquierda
+					x += speed;
+					dir = 0;
+					break;
+				case 3://arriba
+					y += speed;
+					dir = 1;
+					break;
+				case 0://derecha
+					x -= speed;
+					dir = 2;
+					break;
+				case 1://abajo
+					y -= speed;
+					dir = 3;
+					break;
 			}
-			mover=dirRandom();
-			rectangulo.setBounds(x+5,y+5,28,28);
+			mover = dirRandom();
+			rectangulo.setBounds(x + 5, y + 5, 28, 28);
 		}
 		
 		cambiarSprite();
@@ -74,7 +74,6 @@ public abstract class Enemigo extends Entidad{
 		int min = 0;
 		Random random = new Random();
 		return  (random.nextInt(max + min) + min);
-
 	}
 
 	public Rectangle getSolidArea() {
@@ -89,7 +88,4 @@ public abstract class Enemigo extends Entidad{
 		j.visitarEnemigo(this);
 		
 	}
-
-
-
 }

@@ -5,10 +5,10 @@ import Logica.Juego;
 public abstract class PowerUp {
 	
 	protected String ruta;
-	protected Juego game= Juego.getJuego();
+	protected Juego game = Juego.getJuego();
 
 	public PowerUp() {
-		ruta=" ";
+		ruta = " ";
 	}
 
 	public String getRuta() {

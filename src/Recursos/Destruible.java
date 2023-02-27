@@ -4,8 +4,8 @@ import Logica.Juego;
 
 public class Destruible extends Pared{
 
-	public Destruible(int fil,int col) {
-		super(fil,col);
+	public Destruible(int fil, int col) {
+		super(fil, col);
 		setImagen("/Images/wall2.png");
 	}
 
@@ -16,7 +16,7 @@ public class Destruible extends Pared{
 	}
 	
 	public void ponerPowerUp() {
-		if(powerUp!=null) {
+		if (powerUp != null) {
 			setImagen(powerUp.getRuta());
 			this.repaint();
 		}

@@ -4,10 +4,10 @@ public class Pared extends Celda{
 	
 	protected PowerUp powerUp;
 	
-	public Pared(int fil,int col) {
-		super(fil,col);
+	public Pared(int fil, int col) {
+		super(fil, col);
 		setImagen("/Images/pared.png");
-		powerUp=null;
+		powerUp = null;
 	}
 
 	public PowerUp getPowerUp() {
@@ -25,7 +25,6 @@ public class Pared extends Celda{
 	public void setearImagenOg() {
 		setImagen("/Images/pared.png");
 		this.repaint();
-		
 	}
 
 }

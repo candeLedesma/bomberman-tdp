@@ -8,7 +8,7 @@ public class Puerta extends PowerUp{
 
 	public Puerta() {
 		super();
-		ruta="/Images/puerta.png";
+		ruta = "/Images/puerta.png";
 	}
 
 	public void accept(Jugador j) {

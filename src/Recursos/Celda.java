@@ -17,12 +17,12 @@ public abstract class Celda extends JLabel{
 	protected LinkedList<Entidad> entidades;
 	
 	public Celda(int fil,int col) {
-		this.fil=fil;
-		this.col=col;
-		x=col*48;
-		y=fil*48;
-		entidades= new LinkedList<Entidad>();
-		solidArea= new Rectangle(x,y,48,48);
+		this.fil = fil;
+		this.col = col;
+		x= col * 48;
+		y= fil * 48;
+		entidades = new LinkedList<Entidad>();
+		solidArea = new Rectangle(x, y, 48, 48);
 	}
 	
 	public LinkedList<Entidad> getEntidades(){
@@ -67,7 +67,7 @@ public abstract class Celda extends JLabel{
 		
 	}
 
-	public void ponerPowerUp() {//???
+	public void ponerPowerUp() {
 		// TODO Auto-generated method stub
 		
 	}

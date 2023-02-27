@@ -16,13 +16,13 @@ public class Bomba implements VisitorBomba{
 	private Sonido sound;
 
 	public Bomba(int fil,int col) {
-		this.fil=fil;
-		this.col=col;
-		radio=1;
-		int x= col*48;
-		int y=fil*48;
-		wait=0;
-		solidArea= new Rectangle(x+5,y+5,40,40);
+		this.fil = fil;
+		this.col = col;
+		radio = 1;
+		int x = col * 48;
+		int y = fil * 48;
+		wait = 0;
+		solidArea = new Rectangle(x + 5, y + 5, 40, 40);
 	}
 	
 	private void explotar(Celda c) {
@@ -36,7 +36,7 @@ public class Bomba implements VisitorBomba{
 	}
 
 	public void incrementarRadio() {
-		radio+=1;
+		radio += 1;
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class Bomba implements VisitorBomba{
 
 	public void setWait() {
 		wait++;
-		if(wait==3) {
+		if (wait == 3) {
 			sound = new Sonido("src/Audio/burning.wav");
 			sound.activarSonido(2);
 		}
