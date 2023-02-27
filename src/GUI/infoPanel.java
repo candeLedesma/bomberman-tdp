@@ -9,14 +9,14 @@ import javax.swing.JPanel;
 
 import Audio.Sonido;
 
-public class infoPanel extends JPanel{
+public class InfoPanel extends JPanel{
 	
 	private JLabel tiempo;
 	private JLabel lblPuntaje;
 
-	public infoPanel(int ancho) {
+	public InfoPanel(int ancho) {
 		
-		this.setBounds(0,0, ancho, 75);
+		this.setBounds(0, 0, ancho, 75);
 		this.setVisible(true);
 		this.setBackground(Color.LIGHT_GRAY);
 		this.setLayout(null);
@@ -34,13 +34,13 @@ public class infoPanel extends JPanel{
 	}
 	
 	public void setLabelTiempo(int seg) {
-		String tiempoActual= Integer.toString(seg);
-		tiempo.setText("Time: "+tiempoActual);
+		String tiempoActual = Integer.toString(seg);
+		tiempo.setText("Time: " + tiempoActual);
 	}
 	
 	public void setLabelPuntaje(int puntaje) {
-		String puntajeActual= Integer.toString(puntaje);
-		lblPuntaje.setText("Puntaje: "+puntajeActual);
+		String puntajeActual = Integer.toString(puntaje);
+		lblPuntaje.setText("Puntaje: " + puntajeActual);
 	}
 	
 

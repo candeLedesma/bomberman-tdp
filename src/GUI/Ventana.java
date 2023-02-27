@@ -18,25 +18,25 @@ public class Ventana extends JFrame{
 	
 	private Juego juego;
 	private final int filas = 15;//15
-	private final int columnas =27;//27
+	private final int columnas = 27;//27
 	private JPanel contentPane;
 	private final int tileSize = 48;//
-	private final int screenWidth = tileSize*columnas;
-	private final int screenHeight = tileSize*filas;
-	private gamePanel panelJuego;
-	private infoPanel info;
-	private jugadorPanel panelJugador;
+	private final int screenWidth = tileSize * columnas;
+	private final int screenHeight = tileSize * filas;
+	private GamePanel panelJuego;
+	private InfoPanel info;
+	private JugadorPanel panelJugador;
 
 	
 	public Ventana() {
-		setSize(new Dimension(screenWidth,screenHeight+100));//Width,Height
+		setSize(new Dimension(screenWidth, screenHeight + 100));//Width,Height
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Bomberman");	
 		setVisible(true);
 		this.setResizable(false);
 		
-		contentPane= new JPanel();
-		contentPane.setSize(new Dimension(screenWidth,screenHeight+100));
+		contentPane = new JPanel();
+		contentPane.setSize(new Dimension(screenWidth, screenHeight + 100));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -45,16 +45,15 @@ public class Ventana extends JFrame{
 	}
 
 	public void ini() {
-		
 		contentPane.setBackground(Color.LIGHT_GRAY);
-		info= new infoPanel(screenWidth);
+		info= new InfoPanel(screenWidth);
 		contentPane.add(info);
 		
-		panelJugador = new jugadorPanel(screenWidth,screenHeight+100);
+		panelJugador = new JugadorPanel(screenWidth, screenHeight + 100);
 		contentPane.add(panelJugador);
 		contentPane.setComponentZOrder(panelJugador, 0);
 		
-		panelJuego= new gamePanel(filas,columnas);
+		panelJuego= new GamePanel(filas, columnas);
 		addKeyListener(panelJuego);
 		contentPane.add(panelJuego);
 		
@@ -92,9 +91,9 @@ public class Ventana extends JFrame{
 		
 	}
 	
-	public gamePanel getPanel(){
-		return panelJuego;}
-	
+	public GamePanel getPanel(){
+		return panelJuego;
+	}
 
 	public void setearBomba(Celda celda) {
 		panelJugador.setearBomba(celda);	
@@ -106,7 +105,7 @@ public class Ventana extends JFrame{
 
 	public void limpiarGrilla() {
 		this.remove(panelJuego);
-		panelJuego= new gamePanel(filas,columnas);
+		panelJuego= new GamePanel(filas, columnas);
 		addKeyListener(panelJuego);
 		contentPane.add(panelJuego);
 		panelJugador.eliminarEntidad(juego.getJugador());
@@ -143,9 +142,9 @@ public class Ventana extends JFrame{
 		fondo.setBounds(0, 0, screenWidth, screenHeight+100);
 		contentPane.add(fondo);
 		JLabel puntaje = new JLabel();
-		puntaje.setText("Puntaje: "+juego.getPuntaje());
+		puntaje.setText("Puntaje: " + juego.getPuntaje());
 		puntaje.setBackground(Color.WHITE);
-		puntaje.setBounds(680,450,100,50);
+		puntaje.setBounds(680, 450, 100, 50);
 		contentPane.add(puntaje);
 		contentPane.setComponentZOrder(puntaje, 0);
 	}
@@ -158,7 +157,4 @@ public class Ventana extends JFrame{
 		contentPane.add(fondo);
 		contentPane.repaint();
 	}
-
-
-	
 }

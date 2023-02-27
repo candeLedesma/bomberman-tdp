@@ -14,7 +14,7 @@ public class Generador2 implements Factory{
 
 	@Override
 	public Enemigo crearEnemigo1() {
-		Enemigo enemigo= new Ballom();
+		Enemigo enemigo = new Ballom();
 		return enemigo;
 	}
 
@@ -32,13 +32,13 @@ public class Generador2 implements Factory{
 
 	@Override
 	public PowerUp crearPowerUp1() {
-		PowerUp power= new FireUp();
+		PowerUp power = new FireUp();
 		return power;
 	}
 
 	@Override
 	public PowerUp crearPowerUp2() {
-		Skate power= new Skate();
+		Skate power = new Skate();
 		return power;
 	}
 

@@ -11,9 +11,9 @@ import Logica.Grilla;
 import Logica.Juego;
 import Recursos.Celda;
 
-public class gamePanel extends JPanel implements KeyListener{
+public class GamePanel extends JPanel implements KeyListener {
 
-	private Juego juego= Juego.getJuego();
+	private Juego juego = Juego.getJuego();
 	private JPanel panelGrilla;
 	private final int filas;//15
 	private final int columnas;
@@ -22,22 +22,22 @@ public class gamePanel extends JPanel implements KeyListener{
 	private int screenHeight;
 	
 	
-	public gamePanel(int filas,int columnas) {
+	public GamePanel(int filas, int columnas) {
 		
-		this.filas=filas;
-		this.columnas=columnas;
-		panelGrilla=  new JPanel();
+		this.filas = filas;
+		this.columnas = columnas;
+		panelGrilla = new JPanel();
 		
-		screenWidth = tileSize*columnas;
-		screenHeight = tileSize*filas;
+		screenWidth = tileSize * columnas;
+		screenHeight = tileSize * filas;
 		
 		
-		this.setBounds(0,75,screenWidth,screenHeight);
+		this.setBounds(0, 75, screenWidth, screenHeight);
 		
-		panelGrilla.setBounds(0,75,screenWidth,screenHeight);
-		panelGrilla.setBackground(new Color(12,124,20));
+		panelGrilla.setBounds(0, 75, screenWidth, screenHeight);
+		panelGrilla.setBackground(new Color(12, 124, 20));
 		
-		panelGrilla.setLayout(new GridLayout(filas,columnas,0,0));
+		panelGrilla.setLayout(new GridLayout(filas, columnas, 0, 0));
 		this.add(panelGrilla);
 		panelGrilla.setVisible(true);
 	}
@@ -47,20 +47,18 @@ public class gamePanel extends JPanel implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		int mover=-1;
+		int mover = -1;
 		
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-			mover=0;
-		else if(e.getKeyCode() == KeyEvent.VK_LEFT)
-			mover=2;
-	
-		else if(e.getKeyCode() == KeyEvent.VK_UP)
-			mover=3;
-
-		else if(e.getKeyCode() == KeyEvent.VK_DOWN)
-			mover=1;
-		else if(e.getKeyCode()== KeyEvent.VK_SPACE)
-			mover=4;
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT)
+			mover = 0;
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT)
+			mover = 2;
+		else if (e.getKeyCode() == KeyEvent.VK_UP)
+			mover = 3;
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			mover = 1;
+		else if (e.getKeyCode() == KeyEvent.VK_SPACE)
+			mover = 4;
 		
 		juego.mover(mover);
 	}
@@ -70,9 +68,9 @@ public class gamePanel extends JPanel implements KeyListener{
 	
 
 	public void initGrilla(Grilla grilla) {
-		for(int i=0; i < filas; i++) {
-			for(int j =0; j < columnas; j++) {
-				panelGrilla.add(grilla.getCelda(i,j));
+		for (int i = 0; i < filas; i++) {
+			for (int j =0; j < columnas; j++) {
+				panelGrilla.add(grilla.getCelda(i, j));
 			}
 		}
 

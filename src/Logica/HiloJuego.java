@@ -2,16 +2,15 @@ package Logica;
 
 public class HiloJuego extends Thread{
 
-	private Juego game= Juego.getJuego();
-
+	private Juego game = Juego.getJuego();
 	 
 	public HiloJuego() {
         game.getSegundos();
 	}
 	
 	public void run() {
-		int enemigos=0;
-		while(game.getSegundos()>0 && game.noTermino()) {
+		int enemigos = 0;
+		while (game.getSegundos() > 0 && game.noTermino()) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -23,15 +22,12 @@ public class HiloJuego extends Thread{
 	
 			game.getManejadorBombas().eliminarBomba();
 	
-			if(enemigos%15==0) {
+			if(enemigos % 15 == 0) {
 				game.getManejadorEnemigos().crearEnemigo();
 			}
 		
 		}
 		game.restarSegundos();
 		game.gameOver();
-			
 	}
-		
-
 }

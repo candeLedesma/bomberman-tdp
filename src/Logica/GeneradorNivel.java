@@ -29,14 +29,14 @@ public class GeneradorNivel {
 	
 	public GeneradorNivel(final int filas, final int columnas) {
 		nivelTxt = new Archivo();
-		this.filas=filas;
-		this.columnas=columnas;
+		this.filas = filas;
+		this.columnas = columnas;
 	}
 
 	public LinkedList<Pared> dameNivel(int nivel) {
-		if(nivel==1)
+		if (nivel == 1)
 			f = new Generador1();
-		else if(nivel==2) {
+		else if (nivel == 2) {
 			f = new Generador2();
 		}
 		int caracter;
@@ -47,19 +47,19 @@ public class GeneradorNivel {
 		try {
 			nivelFile = new FileReader(txt);
 			caracter = nivelFile.read();
-			for(int i=0; i<filas && caracter!=-1; i++) {
-				for(int j=0; j<columnas; j++) {
-					if(caracter == '+') {
+			for (int i=0; i<filas && caracter!=-1; i++) {
+				for (int j=0; j<columnas; j++) {
+					if (caracter == '+') {
 						p = new Pared(i,j);
 						paredes.addLast(p);
-					}if(caracter == '*') {
+					} if (caracter == '*') {
 						p = new Destruible(i,j);
 						paredes.addLast(p);
 						//poner powerup
 						destruibles.addLast(p);
 						
 					}
-					caracter= nivelFile.read();
+					caracter = nivelFile.read();
 				}
 			}	
 			nivelFile.close();

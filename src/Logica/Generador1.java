@@ -8,7 +8,7 @@ import Recursos.Onil;
 import Recursos.PowerUp;
 import Recursos.Skate;
 
-public class Generador1 implements Factory{
+public class Generador1 implements Factory {
 
 	public Generador1() {}
 

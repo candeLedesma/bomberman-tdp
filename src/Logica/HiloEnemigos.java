@@ -2,12 +2,12 @@ package Logica;
 
 public class HiloEnemigos extends Thread{
 	
-	private Juego game= Juego.getJuego();
+	private Juego game = Juego.getJuego();
 
 	public HiloEnemigos() {}
 	
 	public void run() {
-		while(game.noTermino()) {
+		while (game.noTermino()) {
 			try {
 				Thread.sleep(80);
 			} catch (InterruptedException e) {

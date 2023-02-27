@@ -9,8 +9,7 @@ import Recursos.Pared;
 
 
 public class Juego {
-
-	private static Juego juego=new Juego();
+	private static Juego juego = new Juego();
 	private int nivel;
 	private Grilla grilla;
 	private GeneradorNivel generador;
@@ -28,13 +27,13 @@ public class Juego {
 	}
 	
 	public void iniciarJuego(Ventana window) {
-		this.window=window;
-		int filas=window.getFilas();
-		int columnas=window.getColumnas();
-		termino =true;
-		nivel=1;
-		puntaje=0;
-		generador = new GeneradorNivel(filas,columnas);
+		this.window = window;
+		int filas = window.getFilas();
+		int columnas = window.getColumnas();
+		termino = true;
+		nivel = 1;
+		puntaje = 0;
+		generador = new GeneradorNivel(filas, columnas);
 		nextLevel();
 	}
 	
@@ -43,25 +42,24 @@ public class Juego {
 		mEnemigos = new ManejadorEnemigos(nivel);
 		mBombas = new ManejadorBombas();
 		
-		if(nivel<3) {
-			segundos=300;
+		if (nivel < 3) {
+			segundos = 300;
 			LinkedList<Pared> paredes = generador.dameNivel(nivel);
 			grilla = new Grilla(paredes);
 			cChecker = new ColisionChecker();
 			cChecker.setPowerUps(generador.getParedesDestruibles());
 			player = new Jugador();
-			if(nivel==2)
+			if(nivel == 2)
 				player.setSpeed(2);
 			window.update(player);
 			window.initGrilla(grilla);
-		}else {
+		} else {
 			win();
 		}
 	}
 
 	public void limpiar() {
 		window.limpiarGrilla();
-		
 	}
 
 	public void gameOver() {
@@ -70,9 +68,8 @@ public class Juego {
 	}
 	
 	private void win() {
-		System.out.println("ganste!!");
 		window.win();
-		termino=true;
+		termino = true;
 	}
 
 	public void initGrilla() {
@@ -80,14 +77,11 @@ public class Juego {
 	}
 	
 	public synchronized void mover(int mover) {
-		//if(termino) {
-			if(mover!=4) {
-				player.mover(mover,cChecker);
-				window.update(player);
-			}else
-				mBombas.ponerBomba();
-		//}else
-			//gameOver();
+		if (mover != 4) {
+			player.mover(mover, cChecker);
+			window.update(player);
+		} else
+			mBombas.ponerBomba();
 	}
 
 	public LinkedList<Bomba> getBombas() {
@@ -133,7 +127,7 @@ public class Juego {
 	}
 
 	public void actualizarPuntaje(int p) {
-		this.puntaje+=p;
+		this.puntaje += p;
 		window.actualizarLabelPuntaje(puntaje);	
 	}
 
@@ -162,7 +156,6 @@ public class Juego {
 
 	public void moverEnemigos() {
 		mEnemigos.moverEnemigos();
-		
 	}
 
 	public int getPuntaje() {

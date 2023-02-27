@@ -12,7 +12,7 @@ import Recursos.Transitable;
 
 public class Grilla {
 
-	private Juego juego= Juego.getJuego();
+	private Juego juego = Juego.getJuego();
 	private Celda grilla[][];
 	private LinkedList<Pared> paredes;
 	private Ventana window;
@@ -23,14 +23,14 @@ public class Grilla {
 	 * */
 	
 	public Grilla(LinkedList<Pared> paredes) {
-		window= juego.getVentana();
-		this.paredes=paredes;
-		int filas= window.getFilas();
-		int columnas= window.getColumnas();
+		window = juego.getVentana();
+		this.paredes = paredes;
+		int filas = window.getFilas();
+		int columnas = window.getColumnas();
 		grilla = new Celda[filas][columnas];
-		for(int i=0; i<filas; i++) {
-			for(int j=0; j<columnas; j++) {
-				grilla[i][j] = new Transitable(i,j);//seteo la grilla (comienza vacia)
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++) {
+				grilla[i][j] = new Transitable(i, j);//seteo la grilla (comienza vacia)
 
 			}
 		}
@@ -41,30 +41,26 @@ public class Grilla {
 	private void ponerParedes() {
 		int fila;
 		int col;
-		for(Pared p: paredes) {
-			fila=p.getFila();
-			col=p.getCol();
-			grilla[fila][col]=p;
+		for (Pared p: paredes) {
+			fila = p.getFila();
+			col = p.getCol();
+			grilla[fila][col] = p;
 			
 		}
 		
 	}
 	
-	public Celda getCelda(int i,int j) {
+	public Celda getCelda(int i, int j) {
 		return grilla[i][j];
 	}
 
 	public void setBomba(Bomba b) {
 		int i = b.getFila();
-		int j= b.getCol();
+		int j = b.getCol();
 		grilla[i][j].accept(b);//aceptar bomba
 	}
 
 	public LinkedList<Pared> getParedes() {
 		return paredes;
 	}
-
-
-
-
 }
