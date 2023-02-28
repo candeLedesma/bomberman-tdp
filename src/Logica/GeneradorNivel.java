@@ -33,7 +33,7 @@ public class GeneradorNivel {
 		this.columnas = columnas;
 	}
 
-	public LinkedList<Pared> dameNivel(int nivel) {
+	public LinkedList<Pared> getLevel(int nivel) {
 		if (nivel == 1)
 			f = new Generador1();
 		else if (nivel == 2) {
@@ -97,14 +97,14 @@ public class GeneradorNivel {
 		int min = 1;
 		Random random = new Random();
 		int nroRandom = random.nextInt(max + min) + min;
-		PowerUp p =null;
+		PowerUp p = null;
 		switch (nroRandom) { 
 		    case 1:
-		    	p= f.crearPowerUp1();
-		     break;
+		    	p = f.crearPowerUp1();
+		    	break;
 		    case 2:
-		     	p= f.crearPowerUp2();
-		     break;	
+		     	p = f.crearPowerUp2();
+		     	break;	
 		}
 		return p;
 	}

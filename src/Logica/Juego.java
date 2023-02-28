@@ -14,7 +14,7 @@ public class Juego {
 	private Grilla grilla;
 	private GeneradorNivel generador;
 	private Ventana window;
-	private Jugador player;
+	private Jugador jugador;
 	private ColisionChecker cChecker;
 	private ManejadorEnemigos mEnemigos;
 	private ManejadorBombas mBombas;
@@ -38,20 +38,19 @@ public class Juego {
 	}
 	
 	private void nextLevel() {
-		
 		mEnemigos = new ManejadorEnemigos(nivel);
 		mBombas = new ManejadorBombas();
 		
 		if (nivel < 3) {
 			segundos = 300;
-			LinkedList<Pared> paredes = generador.dameNivel(nivel);
+			LinkedList<Pared> paredes = generador.getLevel(nivel);
 			grilla = new Grilla(paredes);
 			cChecker = new ColisionChecker();
 			cChecker.setPowerUps(generador.getParedesDestruibles());
-			player = new Jugador();
+			jugador = new Jugador();
 			if(nivel == 2)
-				player.setSpeed(2);
-			window.update(player);
+				jugador.setSpeed(2);
+			window.update(jugador);
 			window.initGrilla(grilla);
 		} else {
 			win();
@@ -64,7 +63,7 @@ public class Juego {
 
 	public void gameOver() {
 		window.gameOver();
-		termino=true;
+		termino = true;
 	}
 	
 	private void win() {
@@ -78,14 +77,14 @@ public class Juego {
 	
 	public synchronized void mover(int mover) {
 		if (mover != 4) {
-			player.mover(mover, cChecker);
-			window.update(player);
+			jugador.mover(mover, cChecker);
+			window.update(jugador);
 		} else
 			mBombas.ponerBomba();
 	}
 
 	public LinkedList<Bomba> getBombas() {
-		return (LinkedList<Bomba>) player.getBombas().clone();
+		return (LinkedList<Bomba>) jugador.getBombas().clone();
 	}
 	
 	public LinkedList<Pared> getParedesDestruibles() {
@@ -107,7 +106,7 @@ public class Juego {
 	}
 
 	public Jugador getJugador() {
-		return player;
+		return jugador;
 	}
 
 	public int getSegundos() {
@@ -149,7 +148,7 @@ public class Juego {
 	}
 
 	public void eliminarEnemigo(Enemigo e) {
-		e.accept(player);
+		e.accept(jugador);
 		window.eliminarEntidad(e);
 		mEnemigos.getEnemigos().remove(e);
 	}

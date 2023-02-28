@@ -63,28 +63,36 @@ public class ColisionChecker {
 	}
 
 	private synchronized void checkColisionParedes(Entidad entity, int dir) {
-		LinkedList<Pared> paredes=(LinkedList<Pared>) game.getGrilla().getParedes().clone();
+		LinkedList<Pared> paredes = (LinkedList<Pared>) game.getGrilla().getParedes().clone();
 		
 		int x = entity.getX();
 		int y = entity.getY();
 
-		switch (dir){//direccion a donde me quiero mover
-		case 1://abajo
-			y += entity.getVelocidad();
-		case 2: //izquierda
-			x -= entity.getVelocidad();
-		case 3: // arriba
-			y -= entity.getVelocidad();
-		case 4:
-			x += entity.getVelocidad();
+		switch (dir) {//direccion a donde me quiero mover
+			case 1://abajo
+				y += entity.getVelocidad();
+				break;
+			case 2: //izquierda
+				x -= entity.getVelocidad();
+				break;
+			case 3: // arriba
+				y -= entity.getVelocidad();
+				break;
+			case 4:
+				x += entity.getVelocidad();
+				break;
 		}
 			
-		Rectangle rectangulo = new Rectangle(x + 5, y + 5, 30, 30);//x+5,y+5,28,28
+		Rectangle rectangulo = new Rectangle(x + 5, y + 5, 26, 26);//x+5,y+5,28,28
 		
-		for (Pared p: paredes) {
-			if (rectangulo.intersects(p.getSolidArea()) && dir == entity.getDireccion()) {
+		for (Pared pared: paredes) {
+			if (rectangulo.intersects(pared.getSolidArea()) && dir == entity.getDireccion()) {
+				System.out.println("dir: " + dir + " entity.getDir: " + entity.getDireccion());
+				System.out.println("rec x, y: " + rectangulo.getX() + " " + rectangulo.getY());
+				System.out.println("pared x, y: " + pared.getX() + " " + pared.getY());
+				System.out.println("---");
 				entity.setColisionOn(true);
-			}	
+			}
 		}
 	}
 
@@ -113,10 +121,7 @@ public class ColisionChecker {
 		 for (Bomba b:bombas) {
 			 if (b.getSolidArea().intersects(e.getSolidArea())) {
 					e.setColisionOn(true);
-				}
+			 }
 		 }
 	}
-
-
-
 }

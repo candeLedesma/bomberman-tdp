@@ -1,6 +1,6 @@
 package Recursos;
 
-public class Transitable extends Celda{
+public class Transitable extends Celda {
 	
 	public Transitable(int fil, int col) {
 		super(fil, col);

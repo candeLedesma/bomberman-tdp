@@ -7,7 +7,7 @@ import Logica.ColisionChecker;
 import Logica.Juego;
 import Logica.Visitor;
 
-public class Jugador extends Entidad implements Visitor{
+public class Jugador extends Entidad implements Visitor {
 	
 	private Juego game = Juego.getJuego();
 	private String down1, down2, up1, up2, left1, left2, right1, right2;
@@ -111,7 +111,7 @@ public class Jugador extends Entidad implements Visitor{
 	}
 	
 	public void setSpeed(int speed) {
-		this.speed=speed;
+		this.speed = speed;
 	}
 
 	@Override

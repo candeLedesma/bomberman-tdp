@@ -12,19 +12,19 @@ public class ManejadorBombas {
 	public ManejadorBombas() {}
 
 	public void eliminarBomba() {
-		Bomba b = game.getJugador().eliminarBomba();
-		if (b != null) {
-			int i = b.getFila();
-			int j = b.getCol();
-			game.getGrilla().getCelda(i, j).setearImagenOg();
-			explotarEntidades(b);
+		Bomba bomba = game.getJugador().eliminarBomba();
+		if (bomba != null) {
+			int fila = bomba.getFila();
+			int col = bomba.getCol();
+			game.getGrilla().getCelda(fila, col).setearImagenOg();
+			explotarEntidades(bomba);
 		}
 	}
 
 	public void ponerBomba() {
-		Bomba b = game.getJugador().ponerBomba();
-		if(b != null)
-			game.getGrilla().setBomba(b);
+		Bomba bomba = game.getJugador().ponerBomba();
+		if (bomba != null)
+			game.getGrilla().setBomba(bomba);
 	}
 	
 	private synchronized void explotarEntidades(Bomba b) {
@@ -47,18 +47,18 @@ public class ManejadorBombas {
 			
 			filaE = game.getJugador().getFil();
 			colE = game.getJugador().getCol();
-			if(filaE >= minFila && filaE <= maxFila && colE == b.getCol() || 
+			if (filaE >= minFila && filaE <= maxFila && colE == b.getCol() || 
 					colE <= maxCol && colE >= minCol && filaE == b.getFila())  {
 				game.gameOver();
 			}
 			
 		
-			for(int i = minFila; i<=maxFila; i++) {
+			for (int i = minFila; i<=maxFila; i++) {
 				game.getGrilla().getCelda(i, b.getCol()).explotar();
 			}
 			
 			
-			for(int j = minCol; j <= maxCol; j++) {
+			for (int j = minCol; j <= maxCol; j++) {
 				game.getGrilla().getCelda(b.getFila(), j).explotar();
 			}
 		}
