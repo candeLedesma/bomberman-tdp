@@ -45,7 +45,7 @@ public class GeneradorNivel {
 		txt = nivelTxt.getNombreNivel(nivel);
 		Pared p = null;
 		try {
-			nivelFile = new FileReader(txt);
+			nivelFile = new FileReader(txt);//txt
 			caracter = nivelFile.read();
 			for (int i=0; i<filas && caracter!=-1; i++) {
 				for (int j=0; j<columnas; j++) {

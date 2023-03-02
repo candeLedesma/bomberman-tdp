@@ -13,7 +13,7 @@ public class Archivo {
 			nivel1 = new FileWriter("NIVEL1");
 			nivel1.write("+++++++++++++++++++++++++++");
 			nivel1.append("+*----*-------*-------*---+");
-			nivel1.append("+*+-+-+*+-+-+-+-+-+-+-++*-+");
+			nivel1.append("+*+-+-+*+-+-+-+-+-+-+-+-+-+");
 			nivel1.append("+*-*---*----------*-----*-+");
 			nivel1.append("+*+*+-+*+-+-+-+-+-+-+-+-+-+");
 			nivel1.append("+--------*******--------*-+");
@@ -66,7 +66,7 @@ public class Archivo {
 	public String getNombreNivel(int nivel) {
 		String toReturn;
 		if(nivel==1) 
-			toReturn="NIVEL1";
+			toReturn="NIVEL1";//"NIVEL1"
 		else 
 			toReturn ="NIVEL2";
 		return toReturn;

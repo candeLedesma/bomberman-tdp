@@ -2,7 +2,6 @@ package Recursos;
 
 import java.util.Iterator;
 import java.util.LinkedList;
-
 import Logica.ColisionChecker;
 import Logica.Juego;
 import Logica.Visitor;
@@ -116,11 +115,12 @@ public class Jugador extends Entidad implements Visitor {
 
 	@Override
 	public void visitarSkate(Skate p) {//aumentarVelocidad
-		speed += 2;
+		speed += 1;
 	}
 
 	@Override
 	public void visitarFireUp(FireUp p) {//aumentarRadioBomba() 
+		System.out.println("en visitarFireUp");
 		for (Bomba b: bombas) {
 			b.incrementarRadio();
 		}
@@ -128,14 +128,14 @@ public class Jugador extends Entidad implements Visitor {
 
 	@Override
 	public void visitarBombUp(BombUp p) {//aumentarBombas()
-		maxBombas = maxBombas * 10;
+		maxBombas += 1;
 	}
 
 	public void visitarPuerta(Puerta puerta) {
 		game.ponerPuerta();
 	}
 
-	public void visitarEnemigo(Enemigo e) {//aumentarVelocidad
+	public void visitarEnemigo(Enemigo e) {
 		puntaje += e.getPuntos();
 		game.actualizarPuntaje(puntaje);
 	}

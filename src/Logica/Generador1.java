@@ -4,6 +4,7 @@ import Recursos.Ballom;
 import Recursos.BombUp;
 import Recursos.Dahl;
 import Recursos.Enemigo;
+import Recursos.FireUp;
 import Recursos.Onil;
 import Recursos.PowerUp;
 import Recursos.Skate;

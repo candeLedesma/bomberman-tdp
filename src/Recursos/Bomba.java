@@ -37,6 +37,7 @@ public class Bomba implements VisitorBomba{
 
 	public void incrementarRadio() {
 		radio += 1;
+		System.out.println("incremente radio");
 	}
 
 	@Override

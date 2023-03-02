@@ -61,14 +61,14 @@ public class Juego {
 		window.limpiarGrilla();
 	}
 
-	public void gameOver() {
-		window.gameOver();
+	public synchronized void gameOver() {
 		termino = true;
+		window.gameOver();
 	}
 	
-	private void win() {
-		window.win();
+	private synchronized void win() {
 		termino = true;
+		window.win();
 	}
 
 	public void initGrilla() {
@@ -131,7 +131,6 @@ public class Juego {
 	}
 
 	public ManejadorEnemigos getManejadorEnemigos() {
-		// TODO Auto-generated method stub
 		return mEnemigos;
 	}
 
@@ -162,7 +161,6 @@ public class Juego {
 	}
 
 	public boolean noTermino() {
-		// TODO Auto-generated method stub
 		return termino;
 	}
 

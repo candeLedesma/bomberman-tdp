@@ -70,16 +70,16 @@ public class ColisionChecker {
 
 		switch (dir) {//direccion a donde me quiero mover
 			case 1://abajo
-				y += entity.getVelocidad();
+				y += 4;//entity.getVelocidad();
 				break;
 			case 2: //izquierda
-				x -= entity.getVelocidad();
+				x -= 4;//entity.getVelocidad();
 				break;
 			case 3: // arriba
-				y -= entity.getVelocidad();
+				y -= 4;//entity.getVelocidad();
 				break;
 			case 4:
-				x += entity.getVelocidad();
+				x += 4;// entity.getVelocidad();
 				break;
 		}
 			
@@ -87,10 +87,6 @@ public class ColisionChecker {
 		
 		for (Pared pared: paredes) {
 			if (rectangulo.intersects(pared.getSolidArea()) && dir == entity.getDireccion()) {
-				System.out.println("dir: " + dir + " entity.getDir: " + entity.getDireccion());
-				System.out.println("rec x, y: " + rectangulo.getX() + " " + rectangulo.getY());
-				System.out.println("pared x, y: " + pared.getX() + " " + pared.getY());
-				System.out.println("---");
 				entity.setColisionOn(true);
 			}
 		}
@@ -104,7 +100,7 @@ public class ColisionChecker {
 		Jugador entity = game.getJugador();
 		int x = entity.getX();
 		int y = entity.getY();
-		Rectangle rectangulo = new Rectangle(x + 8, y + 8, 20, 20);
+		Rectangle rectangulo = new Rectangle(x + 10, y + 10, 20, 20);
 		if(rectangulo.intersects(enemigo.getSolidArea())) {
 			game.gameOver();
 		}

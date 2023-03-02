@@ -1,9 +1,8 @@
 package Logica;
 import java.util.LinkedList;
-
 import Recursos.Bomba;
 import Recursos.Enemigo;
-import Recursos.Pared;
+
 
 public class ManejadorBombas {
 
@@ -11,7 +10,7 @@ public class ManejadorBombas {
 	
 	public ManejadorBombas() {}
 
-	public void eliminarBomba() {
+	public void eliminarBomba() {//p
 		Bomba bomba = game.getJugador().eliminarBomba();
 		if (bomba != null) {
 			int fila = bomba.getFila();

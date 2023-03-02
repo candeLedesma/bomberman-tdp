@@ -22,26 +22,21 @@ public class ManejadorEnemigos {
 	}
 	
 	public synchronized void crearEnemigo() {
-		int max = 3;
-		int min = 1;
 		Random random = new Random();
-		int nroRandom = random.nextInt(max + min) + min;
+		int max=75;
+		int min = 0;
+		
+		int ran = random.nextInt(max + min) + min;
 		Enemigo enem = null;
-		switch (nroRandom) {
-		case 1:
+		if(ran>=0 && ran <= 25) {
 			enem = factory.crearEnemigo1();
 			enemigos.addLast(enem);
-			break;
-			
-		case 2: 
+		}else if (ran>25 && ran <= 50) {
 			enem = factory.crearEnemigo2();
 			enemigos.addLast(factory.crearEnemigo2());
-			break;
-			
-		case 3:
+		}else{
 			enem = factory.crearEnemigo3();
 			enemigos.addLast(enem);
-			break;
 		}
 		if(enem != null)
 			posicionRandom(enem);

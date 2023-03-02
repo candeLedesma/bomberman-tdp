@@ -16,11 +16,11 @@ public abstract class Entidad extends JLabel{
 	protected int spriteCounter;
 	protected int spriteNum;
 	protected boolean colisionOn;
-	protected boolean viva;
+	//protected int vida;
 
 
 	public Entidad() {
-		viva = true;
+		//vida = 1;
 		spriteCounter = 0;
 		spriteNum = 1;
 		colisionOn = false;
@@ -39,7 +39,7 @@ public abstract class Entidad extends JLabel{
 		}
 	}
 
-	public void mover(int m, ColisionChecker cChecker) {}//hacer abstracto??
+	public abstract void mover(int m, ColisionChecker cChecker);
 
 	public void setImagen(String ruta) {
 		this.setIcon(new ImageIcon(Pared.class.getResource(ruta)));
