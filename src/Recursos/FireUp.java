@@ -2,7 +2,7 @@ package Recursos;
 
 public class FireUp extends PowerUp {
 
-	/*incrementa el radio de las bombas*/
+	/*activarInmunidad a las bombas*/
 	public FireUp() {
 		super();
 		ruta = "/Images/fireUp.png";

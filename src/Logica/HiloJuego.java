@@ -20,7 +20,9 @@ public class HiloJuego extends Thread{
 			enemigos++;
 	
 			game.getManejadorBombas().eliminarBomba();
-	
+			game.getJugador().desactivarInmunidad();
+			
+			
 			if(enemigos % 15 == 0) {
 				game.getManejadorEnemigos().crearEnemigo();
 			}

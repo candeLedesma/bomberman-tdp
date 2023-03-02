@@ -44,11 +44,14 @@ public class ManejadorBombas {
 				}
 			}
 			
-			filaE = game.getJugador().getFil();
-			colE = game.getJugador().getCol();
-			if (filaE >= minFila && filaE <= maxFila && colE == b.getCol() || 
-					colE <= maxCol && colE >= minCol && filaE == b.getFila())  {
-				game.gameOver();
+			//checkea si el jugador esta en el rango
+			if(!game.getJugador().isInmune()) {
+				filaE = game.getJugador().getFil();
+				colE = game.getJugador().getCol();
+				if (filaE >= minFila && filaE <= maxFila && colE == b.getCol() || 
+						colE <= maxCol && colE >= minCol && filaE == b.getFila())  {
+					game.gameOver();
+				}
 			}
 			
 		

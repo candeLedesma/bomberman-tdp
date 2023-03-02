@@ -39,7 +39,7 @@ public class Generador1 implements Factory {
 
 	@Override
 	public PowerUp crearPowerUp2() {
-		PowerUp power = new Skate();
+		PowerUp power = new FireUp();//Skate
 		return power;
 	}
 

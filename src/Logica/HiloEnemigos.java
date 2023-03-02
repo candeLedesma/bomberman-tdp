@@ -9,7 +9,7 @@ public class HiloEnemigos extends Thread{
 	public void run() {
 		while (game.noTermino()) {
 			try {
-				Thread.sleep(80);
+				Thread.sleep(90);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

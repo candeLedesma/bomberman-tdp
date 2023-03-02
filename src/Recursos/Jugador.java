@@ -14,6 +14,8 @@ public class Jugador extends Entidad implements Visitor {
 	private int contBombas;
 	private int maxBombas;
 	private int puntaje;	
+	private boolean inmune;
+	private int wait;
 	
 	public Jugador() {
 		super();
@@ -31,6 +33,8 @@ public class Jugador extends Entidad implements Visitor {
 		contBombas = 0;
 		maxBombas = 1;
 		puntaje = 0;
+		inmune=false;
+		wait=0;
 		x = 200;
 		y = 50;
 		bombas = new LinkedList<Bomba>();
@@ -97,7 +101,7 @@ public class Jugador extends Entidad implements Visitor {
 			Iterator<Bomba> it = bombas.iterator();
 			while (it.hasNext()) {
 				b = it.next();
-				if (b.getWait() == 2) {
+				if (b.getWait() == 3) {
 					bombas.remove(b);//saca de la lista
 					contBombas--;
 					return b;
@@ -119,11 +123,8 @@ public class Jugador extends Entidad implements Visitor {
 	}
 
 	@Override
-	public void visitarFireUp(FireUp p) {//aumentarRadioBomba() 
-		System.out.println("en visitarFireUp");
-		for (Bomba b: bombas) {
-			b.incrementarRadio();
-		}
+	public void visitarFireUp(FireUp p) {//activarInmunidad
+		inmune=true;
 	}
 
 	@Override
@@ -138,6 +139,21 @@ public class Jugador extends Entidad implements Visitor {
 	public void visitarEnemigo(Enemigo e) {
 		puntaje += e.getPuntos();
 		game.actualizarPuntaje(puntaje);
+	}
+
+	//prueba nuevo powerUp
+	public boolean isInmune() {
+		return inmune;
+	}
+
+	public void desactivarInmunidad() {
+		if(inmune) {
+			if (wait == 15) {
+				inmune=false;
+				wait=0;
+			}else
+				wait++;
+		}
 	}
 
 }
