@@ -1,12 +1,13 @@
 package Logica;
 
 import Recursos.Ballom;
+import Recursos.BombUp;
 import Recursos.Doria;
 import Recursos.Enemigo;
 import Recursos.FireUp;
 import Recursos.Ovape;
 import Recursos.PowerUp;
-import Recursos.Skate;
+
 
 public class Generador2 implements Factory{
 	
@@ -38,7 +39,7 @@ public class Generador2 implements Factory{
 
 	@Override
 	public PowerUp crearPowerUp2() {
-		Skate power = new Skate();
+		BombUp power = new BombUp();
 		return power;
 	}
 

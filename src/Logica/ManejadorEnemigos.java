@@ -25,7 +25,6 @@ public class ManejadorEnemigos {
 		Random random = new Random();
 		int max=75;
 		int min = 0;
-		
 		int ran = random.nextInt(max + min) + min;
 		Enemigo enem = null;
 		if(ran>=0 && ran <= 25) {
@@ -78,11 +77,25 @@ public class ManejadorEnemigos {
 			break;
 		}
 		
-		if (game.getJugador().getFil() != y/48 && game.getJugador().getCol() != x/48) {
+		if (celdaLibre(x,y)) {
 			enem.setX(x);
 			enem.setY(y);
 		} else
 			posicionRandom(enem);
+	}
+	
+	private boolean celdaLibre(int x, int y) {
+		int fila= y/48;
+		int col = x/48;
+		boolean libre=true;
+		for(int i= fila-1; i<fila+1; i++) {
+			for(int j=col-1; j<col+1; j++) {
+				if (game.getJugador().getFil() ==i && game.getJugador().getCol() == j) {
+					libre=false;
+				}
+			}
+		}
+		return libre;
 	}
 
 
